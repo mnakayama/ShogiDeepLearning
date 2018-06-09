@@ -1,8 +1,7 @@
 import numpy as np
-import shogi
-import copy
+import pydlshogi as shogi
 
-from python-dlshogi.common import *
+from pydlshogi.common import *
 
 
 def make_input_features(piece_bb, occupied, pieces_in_hand):
@@ -26,6 +25,18 @@ def make_input_features(piece_bb, occupied, pieces_in_hand):
                 features.append(feature.reshape((9, 9)))
 
     return features
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def make_output_label(move, color):
@@ -76,3 +87,9 @@ def make_output_label(move, color):
     move_label = 9 * 9 * move_direction + move_to
 
     return move_label
+
+def make_features(position):
+    piece_bb, occupied, pieces_in_hand, move, win = position
+    features = make_input_features(piece_bb, occupied, pieces_in_hand)
+
+    return features, move, win

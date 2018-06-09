@@ -1,5 +1,4 @@
-import shogi
-import shogi.CSA
+import pydlshogi as shogi
 import copy
 
 from pydlshogi.features import *
